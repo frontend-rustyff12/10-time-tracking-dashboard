@@ -30,11 +30,11 @@ export default function Card({ topic, curr, prev, time }) {
       : "";
 
   const timeText =
-    time === "day"
+    time === "daily"
       ? "Yesterday"
-      : time === "week"
+      : time === "weekly"
       ? "Last Week"
-      : time === "month"
+      : time === "monthly"
       ? "Last Month"
       : "";
 
