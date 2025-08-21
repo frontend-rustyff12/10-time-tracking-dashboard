@@ -19,3 +19,9 @@
   --color-cust-Navy-900: hsl(235, 46%, 20%);
   --color-cust-Navy-950: hsl(226, 43%, 10%);
 }
+
+/* *,
+*::before,
+*::after {
+  border: 1px solid red;
+} */

@@ -42,14 +42,14 @@ export default function Card({ topic, curr, prev, time }) {
     <article
       className={`${bgColor} ${bgImage} bg-no-repeat bg-[top_right_1rem] pt-10 rounded-2xl text-white`}
     >
-      <div className="bg-cust-Navy-900 rounded-xl p-6 flex flex-col gap-2">
+      <div className="bg-cust-Navy-900 rounded-xl p-6 flex flex-col gap-2 hover:bg-cust-Purple-600 cursor-pointer">
         <div className="flex justify-between items-center font-bold">
-          <h2 className="font-bold">{topic}</h2>
-          <p className="text-xl">. . .</p>
+          <h2 className="font-bold md:text-sm lg:text-base">{topic}</h2>
+          <p className="text-xl md:text-base lg:text-xl">...</p>
         </div>
-        <div className="flex justify-between items-center">
-          <h3 className="text-3xl">{curr}hrs</h3>
-          <p className="text-cust-Navy-200">
+        <div className="flex justify-between items-center md:flex md:flex-col md:items-start">
+          <h3 className="text-3xl md:text-base lg:text-3xl">{curr}hrs</h3>
+          <p className="text-cust-Navy-200 md:text-sm lg:text-base">
             {timeText} - {prev}hrs
           </p>
         </div>

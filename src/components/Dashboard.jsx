@@ -8,13 +8,31 @@ export default function Dashboard() {
 
     const { value } = e.target;
     setTimePeriod(value);
-    console.log(timePeriod);
   }
 
+  useEffect(() => {
+    async function getData() {
+      const url = "/data.json";
+
+      try {
+        const response = await fetch(url);
+        if (!response.ok) {
+          throw new Error(`Response status: ${response.status}`);
+        }
+
+        const res = await response.json();
+        console.log(res);
+      } catch (error) {
+        console.error(error.message);
+      }
+    }
+    getData();
+  }, [timePeriod]);
+
   return (
-    <section className="md:grid md:grid-cols-4 md:gap-4">
+    <section className="md:grid md:grid-cols-4 md:gap-4 md:w-8/12 ">
       <div className="bg-cust-Navy-900 rounded-xl font-rubik ">
-        <div className="bg-cust-Purple-600 rounded-xl px-6 py-7 flex items-center gap-4">
+        <div className="bg-cust-Purple-600 rounded-xl px-6 py-7 flex items-center gap-4 md:flex md:flex-col md:items-start">
           <img
             className="rounded-full border-3 border-white w-18 h-auto"
             src="/image-jeremy.png"
@@ -27,7 +45,7 @@ export default function Dashboard() {
             <h2 className="text-white text-2xl font-light">Jeremy Robson</h2>
           </div>
         </div>
-        <nav className="flex justify-between gap-2 p-6 text-cust-Purple-500 font-light">
+        <nav className="flex justify-between gap-2 p-6 text-cust-Purple-500 font-light md:flex md:flex-col md:items-start">
           <button
             className={`font-rubik font-normal cursor-pointer ${
               timePeriod === "day" ? "text-white" : ""
